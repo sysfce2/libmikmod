@@ -195,7 +195,7 @@ static BOOL IT_Init(void)
 {
 	if(!(mh=(ITHEADER*)MikMod_malloc(sizeof(ITHEADER)))) return 0;
 	if(!(poslookup=(UBYTE*)MikMod_malloc(256*sizeof(UBYTE)))) return 0;
-	if(!(itpat=(ITNOTE*)MikMod_malloc(200*64*sizeof(ITNOTE)))) return 0;
+	if(!(itpat=(ITNOTE*)MikMod_malloc(256*64*sizeof(ITNOTE)))) return 0;
 	if(!(mask=(UBYTE*)MikMod_calloc(64,sizeof(UBYTE)))) return 0;
 	if(!(last=(ITNOTE*)MikMod_calloc(64,sizeof(ITNOTE)))) return 0;
 
@@ -339,10 +339,10 @@ static BOOL IT_ReadPattern(UWORD patrows)
 	int row=0,flag,ch;
 	unsigned int blah;
 	ITNOTE *itt=itpat,dummy,*n,*l;
-	ITNOTE *ite=&itpat[200*64 -1];
+	ITNOTE *ite=&itpat[256*64 -1];
 	UBYTE *m;
 
-	memset(itt,255,200*64*sizeof(ITNOTE));
+	memset(itt,255,256*64*sizeof(ITNOTE));
 
 	do {
 		if(_mm_eof(modreader)) {
