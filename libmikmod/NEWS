@@ -3,21 +3,32 @@ Summary of changes between libmikmod 3.3.13 and libmikmod 3.3.14:
 
 libmikmod v3.3.14 was released on ???. ??, ????.
 
-- Fix out-of-bounds writes in unimod version 6 loader with crafted
-  files (thanks to Dominik Riedweg for the bug report)
+- Fix out-of-bounds writes in unimod v6 loader with crafted files.
 - Add bounding checks for DSMI AMF channel remap table.
-- Added Windows WASAPI output driver, thanks to Stephane Denis.
-- Added Playstation Vita output driver, thanks to Matthieu Milan and
-  'scribam'.
+- Add limit check to numchan in DSM loader.
+- Fix IT pattern loader allocation to match maximum allowed row count
+- Fix ULT loader numchn, numpat, numtrk calculations corner cases.
+- Fix DSM and OKT loaders numtrk integer overflow with crafted files
+- Added Windows WASAPI output driver.
+- Added Playstation Vita output driver.
 - Updated webaudio driver with stereo output support.
 - Fixed Windows XAudio2 driver build using MinGW-w64.
 - Revised SDL output driver for MikMod_Reset() issue.
 - Updated OS2 EMX makefile for KLIBC environment (build tested with
   cross-os2emx toolchain at https://github.com/komh/cross-os2emx )
-- Cmake build system now installs documentation and the autoconf macro,
-  thanks to Jan Alexander Steffen.
+- Cmake build system now installs documentation and the autoconf macro.
 - Minor cmake build system fixes.
 - A few other minor fixes and clean-ups.
+
+Thanks to:
+- Alice Rowan for the DSMI AMF channel remap table patch.
+- Dominik Riedweg for the unimod v6 bug report.
+- Tristan Madani for the IT pattern loader and DSM and OKT loader
+  integer overflow bug reports.
+- Carlos Rafael Gimenes das Neves for WebAudio update.
+- Stephane Denis for the WASAPI output driver.
+- Matthieu Milan and 'scribam' for PlayStation Vita output driver.
+- Jan Alexander Steffen for the cmake install patch.
 
 
 Summary of changes between libmikmod 3.3.12 and libmikmod 3.3.13:
@@ -121,8 +132,8 @@ libmikmod v3.3.12 was released on Dec. 31, 2024.
 - Added Nintendo64 output driver -- based on old work by 'dragonminded'.
 - The library is free of libm dependency.
 - Multiple other cleanups throughout the code.
-- Several build and portability fixes/updates.
 - Removed support for lcc-win32 compiler.
+- Several build and portability fixes/updates.
 
 Thanks to:
 - Lionel Debroux, for providing fuzz files which helped finding defects.
