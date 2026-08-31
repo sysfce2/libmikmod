@@ -239,6 +239,7 @@ static BOOL DSM_Load(BOOL curious)
 	DSMINST s;
 	SAMPLE *q;
 	int cursmp=0,curpat=0,track=0;
+	unsigned int numtrk;
 
 	blocklp=0;
 	blockln=12;
@@ -270,7 +271,12 @@ static BOOL DSM_Load(BOOL curious)
 	of.modtype=MikMod_strdup(DSM_Version);
 	of.numchn=mh->numtrk;
 	of.numpat=mh->numpat;
-	of.numtrk=of.numchn*of.numpat;
+	numtrk=of.numchn*of.numpat;
+	if(of.numchn>DSM_MAXCHAN || numtrk>65535) {
+		_mm_errno = MMERR_LOADING_HEADER;
+		return 0;
+	}
+	of.numtrk=(UWORD)numtrk;
 	of.songname=DupStr(mh->songname,28,1); /* make a cstr of songname */
 	of.reppos=0;
 	of.flags |= UF_PANNING;
