@@ -1,7 +1,7 @@
 Summary of changes between libmikmod 3.3.13 and libmikmod 3.3.14:
 ========================================================================
 
-libmikmod v3.3.14 was released on ???. ??, ????.
+libmikmod v3.3.14 was released on Sep. 11, 2026.
 
 - Fix out-of-bounds writes in unimod v6 loader with crafted files.
 - Add bounding checks for DSMI AMF channel remap table.

@@ -1,7 +1,7 @@
 Summary of changes between MikMod 3.2.9 and MikMod 3.2.10:
 ==================================================================
 
-MikMod 3.2.10 was released on ???. ??, ????.
+MikMod 3.2.10 was released on Sep. 11, 2026.
 
 - Fix a few spelling mistakes (thanks to Stephen Kitt.)
 - Updated OS2 EMX makefile for KLIBC environment (build tested with
